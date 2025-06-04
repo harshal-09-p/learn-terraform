@@ -53,3 +53,9 @@ output "prlist" {
 output "prmap" {
     value = var.c["y"]
 }
+
+variable "cli" { }
+
+output "prcli" {
+    value = var.cli
+}
