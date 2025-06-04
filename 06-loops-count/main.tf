@@ -32,7 +32,7 @@ provider "azurerm" {
   count                 = length(var.nodes)
   name                  = "${var.nodes[count.index]}"
   location              = "UK West"
-  resource_group_name   = "project-setup-1"
+  resource_group_name   = "devops_project_ecom"
 
   ip_configuration {
     name                          = "${var.nodes[count.index]}"
@@ -45,7 +45,7 @@ resource "azurerm_virtual_machine" "test" {
   count                         = length(var.nodes)
   name                          = "${var.nodes[count.index]}"
   location                      = "UK West"
-  resource_group_name           = "project-setup-1"
+  resource_group_name           = "devops_project_ecom"
   network_interface_ids         = [azurerm_network_interface.privateip[count.index].id]
   vm_size                       = "Standard_B2s"
   # Uncomment this line to delete the OS disk automatically when deleting the VM
