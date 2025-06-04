@@ -59,3 +59,9 @@ variable "cli" { }
 output "prcli" {
     value = var.cli
 }
+
+variable "v1" { }
+
+output "prv1" {
+    value = var.v1
+}
