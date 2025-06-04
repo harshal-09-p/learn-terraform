@@ -12,5 +12,5 @@ output "print"{
 }
 
 output "print1"{
-    value = null_resource.test1.id
+    value = null_resource.test2.id
 }
