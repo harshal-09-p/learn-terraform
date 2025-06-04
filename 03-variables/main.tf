@@ -73,3 +73,8 @@ variable "env" {}
 output "prenv" {
     value = var.env
 }
+
+variable "server_count" { }
+output "server_pr" {
+    value = var.server_count
+}
