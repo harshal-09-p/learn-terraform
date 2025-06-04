@@ -16,12 +16,12 @@ provider "azurerm" {
 
  resource "azurerm_network_interface" "privateip" {
   for_each              = var.nodes
-  name                  = "${each.key}"
+  name                  = each.key
   location              = "UK West"
   resource_group_name   = "devops_project_ecom"
 
   ip_configuration {
-    name                          = "${each.key}"
+    name                          = each.key
     subnet_id                     = "/subscriptions/4a491ea7-cd6d-4ec6-aa18-28b31973e70c/resourceGroups/devops_project_ecom/providers/Microsoft.Network/virtualNetworks/workstation-vnet/subnets/default"
     private_ip_address_allocation = "Dynamic"
   }
@@ -29,7 +29,7 @@ provider "azurerm" {
 
 resource "azurerm_virtual_machine" "test" {
   for_each                      = var.nodes
-  name                          = "${each.key}"
+  name                          = each.key
   location                      = "UK West"
   resource_group_name           = "devops_project_ecom"
   network_interface_ids         = [azurerm_network_interface.privateip[each.key].id]
@@ -51,7 +51,7 @@ resource "azurerm_virtual_machine" "test" {
   }
   
   os_profile {
-    computer_name  = "${each.key}"
+    computer_name  = each.key
     admin_username = "harshal"
     admin_password = "harshal@12345"
   }
