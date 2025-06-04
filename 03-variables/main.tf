@@ -3,6 +3,6 @@ variable "x" {
 }
 
 output "print1" {
-    value var.x
+    value = var.x
 }
 
