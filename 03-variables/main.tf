@@ -65,3 +65,9 @@ variable "v1" { }
 output "prv1" {
     value = var.v1
 }
+
+variable "env" {}
+
+output "prenv" {
+    value = var.env
+}
