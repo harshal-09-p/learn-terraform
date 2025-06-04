@@ -8,9 +8,9 @@ resource "null_resource" "test2"{
 }
 
 output "print"{
-    value = resource.test
+    value = null_resource.test
 }
 
 output "print1"{
-    value = resource.test1.id
+    value = null_resource.test1.id
 }
