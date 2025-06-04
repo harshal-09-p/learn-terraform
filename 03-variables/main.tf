@@ -55,7 +55,6 @@ output "prmap" {
 }
 
 variable "cli" { 
-    default = 1
 }
 
 output "prcli" {
