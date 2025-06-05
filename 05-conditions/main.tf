@@ -11,5 +11,5 @@ resource "null_resource" "demo" {
 }
 
 resource "null_resource" "demo1" {
-  count = var.demo ? 1: 0 
+  count = var.demo1 ? 1: 0 
 }
