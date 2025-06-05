@@ -17,5 +17,5 @@ data "azurerm_network_interface" "ni" {
 }
 
 output "network_interface_id" {
-  value = data.azurerm_network_interface.ni.ip_configuration
+  value = data.azurerm_network_interface.ni.ip_configuration.subnet_id
 }
