@@ -10,12 +10,3 @@ data "azurerm_resource_group" "example" {
 output "id" {
   value = data.azurerm_resource_group.example.id
 }
-
-data "azurerm_network_interface" "ni" {
-  name                = "workstation90"
-  resource_group_name = "devops_project_ecom"
-}
-
-output "network_interface_id" {
-  value = data.azurerm_network_interface.ni.ip_configuration["subnet_id"]
-}
