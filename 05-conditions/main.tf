@@ -13,3 +13,27 @@ resource "null_resource" "demo" {
 resource "null_resource" "demo1" {
   count = var.demo1 ? 1: 0 
 }
+
+variable "nodes" {
+    default = {
+        test1 = {
+            private_ip_address_allocation = "Dynamic"
+        }
+        test2 = {
+        }
+    }
+  
+}
+
+resource "azurerm_network_interface" "privateip" {
+  for_each              = var.nodes
+  name                  = "${each.key}-i"
+  location              = "UK West"
+  resource_group_name   = "devops_project_ecom"
+
+  ip_configuration {
+    name                          = each.key
+    subnet_id                     = var.network_interface_id
+    private_ip_address_allocation = length(try(each.value["private_ip_address_allocation"], "")) > 0 ? each.value["private_ip_address_allocation"] : "static"
+  }
+}
