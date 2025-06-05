@@ -12,6 +12,6 @@ terraform {
     resource_group_name  = "devops_project_ecom"        
     storage_account_name = "tfstoragestate01"                              
     container_name       = "roboshop-tfstate-file"                               
-    key                  = test.terraform.tfstate                
+    key                  = "test.terraform.tfstate"               
   }
 }
