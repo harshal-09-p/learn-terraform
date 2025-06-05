@@ -33,7 +33,7 @@ resource "azurerm_network_interface" "privateip" {
 
   ip_configuration {
     name                          = each.key
-    subnet_id                     = var.network_interface_id
+    subnet_id                     = "/subscriptions/4a491ea7-cd6d-4ec6-aa18-28b31973e70c/resourceGroups/devops_project_ecom/providers/Microsoft.Network/virtualNetworks/workstation-vnet/subnets/default"
     private_ip_address_allocation = length(try(each.value["private_ip_address_allocation"], "")) > 0 ? each.value["private_ip_address_allocation"] : "static"
   }
 }
