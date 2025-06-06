@@ -5,7 +5,16 @@ provider "vault" {
 
 variable "token" {}
 
-data "vault_generic_secret" "rundeck_auth" {
+data "vault_generic_secret" "secret" {
   path = "demo/ssh"
 }
 
+resource "local_file" "file1" {
+  content = jsondecode(data.vault_generic_secret.secret.data)
+  filename = "/tmp/vault"
+}
+
+resource "local_file" "file2" {
+  content = data.vault_generic_secret.secret.data_json["password"]
+  filename = "/tmp/vault-pass"
+}
