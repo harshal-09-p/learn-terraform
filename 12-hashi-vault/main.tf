@@ -6,6 +6,6 @@ provider "vault" {
 variable "token" {}
 
 data "vault_generic_secret" "rundeck_auth" {
-  path = "demo/data/ssh"
+  path = "demo/ssh"
 }
 
